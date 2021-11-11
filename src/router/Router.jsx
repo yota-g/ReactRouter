@@ -1,6 +1,7 @@
 // App.jsに記載したSwitch文を記載する
 import { Switch, Route } from "react-router-dom";
 import { Home } from "../Home";
+import { Page404 } from "../Page4040";
 import { page1Routes } from "./Page1Route";
 // import { Page1 } from "../Page1";
 // import { Page1DetailA } from "../Page1DetailA";
@@ -70,6 +71,10 @@ export const Router = () => {
           </Switch>
         )}
       />
+      {/* *は全てのurlを適用するが上から読み込むので当てはまらなかったものにroutingされる。 */}
+      <Route path="*">
+        <Page404 />
+      </Route>
     </Switch>
   );
 };
