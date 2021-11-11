@@ -1,12 +1,15 @@
-import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 //これは、このコンポーネントで囲った配下でRoutingを有効にするというもの。
 //BrouserRouterで囲ってあげるといい。
 //Linkを使うことで簡単にページ遷移ができる
 //リンク先のページの出し分けをするのが、Switchというコンポを使用する
 //Switchの中でRouteにマッチしたものを表示していくという部分でRouteを使用する。
-import { Home } from "./Home";
-import { Page1 } from "./Page1";
-import { Page2 } from "./Page2";
+import { Router } from "./router/Router";
+// import { Home } from "./Home";
+// import { Page1 } from "./Page1";
+// import { Page1DetailA } from "./Page1DetailA";
+// import { Page1DetailB } from "./Page1DetailB";
+// import { Page2 } from "./Page2";
 import "./styles.css";
 
 export default function App() {
@@ -26,19 +29,9 @@ export default function App() {
         {/* <Page2 /> */}
       </div>
       {/* どのPathの時にどのコンポーネントを出力するのかを記載。 */}
-      <Switch>
-        {/* exactはtrue or　falseを含んでいて完全一致したものを返すようになっている。 */}
-        {/* exactがないと、/は全てのパスが対象になってしまう。 完全一致以外対象にしたくない場合は、exactをつけること。　 */}
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/page1">
-          <Page1 />
-        </Route>
-        <Route path="/page2">
-          <Page2 />
-        </Route>
-      </Switch>
+      {/* Switch文をrouter.jsxに移行 */}
+      <Router />
+      {/* routeはrouteで別で出してあげる方がいい。 */}
     </BrowserRouter>
   );
 }
